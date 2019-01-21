@@ -47,3 +47,14 @@ fragment courseFields on Course {
 }
 
 ```
+
+
+After adding mutation code run mutation:
+
+```
+mutation updateCourseTopic($id: Int!, $topic: String!) {
+  updateCourseTopic(id: $id, topic: $topic) {
+    ... courseFields
+  }
+}
+```
