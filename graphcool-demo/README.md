@@ -45,3 +45,46 @@ mutation {
 
 
 Query users:
+```
+query {
+  allUsers {
+    id
+  }
+}
+```
+
+
+Query with filter:
+
+```
+query {
+  allPosts(filter: {
+    title_contains: "biggest"
+  }) {
+    id
+    title
+    published
+  }
+}
+
+```
+
+Traversing many nodes:
+
+```
+query {
+  User(id: "cixnekqnu2ify0134ekw4pox8") {
+    id
+    name
+    posts {
+      id
+      published
+    }
+  }
+}
+
+```
+
+
+Mutations:
+

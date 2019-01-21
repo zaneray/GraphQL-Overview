@@ -27,6 +27,8 @@ GraphQL is a query language that is very different then REST.
 
 ### Apollo
 
+( If you do not want to use Apollo you can use graphql-request)
+
 Regardless of where you GraphQL source is coming from, your web application is always going to use Apollo to provide a networking interface between your web application and your graphQL server.
 
 Apollo gives you some great out of box tools:
@@ -132,3 +134,8 @@ const Dogs = ({ onDogSelected }) => (
     - react-static static site generator
     - GraphCool wraps BigCommerce API
     - Apollo client providing networking interface
+
+
+#### GraphCool
+
+- use command line tool
