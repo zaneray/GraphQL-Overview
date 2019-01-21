@@ -1,5 +1,4 @@
 ## Introduction to GraphQL
-----
 
 By Doug Walter for The ZaneRay Group
 
@@ -7,15 +6,22 @@ By Doug Walter for The ZaneRay Group
 
 ### Overview
 
+![overview]("./assets/graphql-overview.png")
+
 GraphQL is a query language that is very different then REST.
 
-You can build and maintain your own GraphQL servers using Node. See "GraphQL-Express" Demo
+- You can build and maintain your own GraphQL servers using Node. See "GraphQL-Express" Demo
 
-You can use BAAS (backend-as-a-service) tools like GraphCool which provide the GraphQL infrastructure, and allow you to focus on writing code. (think google cloud functions)
+- You can use BAAS (backend-as-a-service) tools like GraphCool which provide the GraphQL infrastructure, and allow you to focus on writing code. (think google cloud functions)
 
-You can consume a third party GraphQL API such as [shopify](https://help.shopify.com/en/api/graphql-admin-api)
+- You can consume a third party GraphQL API such as [shopify](https://help.shopify.com/en/api/graphql-admin-api)
 
 ---
+
+### Resources And Links
+
+
+----
 
 
 ### Apollo
@@ -116,3 +122,5 @@ const Dogs = ({ onDogSelected }) => (
   </Query>
 );
 ```
+
+----
