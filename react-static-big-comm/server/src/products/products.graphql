@@ -1,0 +1,7 @@
+type ProductsPayload {
+  allProducts: Json!
+}
+
+extend type Query {
+  products: ProductsPayload
+}

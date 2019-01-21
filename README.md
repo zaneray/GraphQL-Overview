@@ -20,6 +20,7 @@ GraphQL is a query language that is very different then REST.
 
 ### Resources And Links
 
+[GraphQL.org](https://graphql.org/)
 
 ----
 
@@ -124,3 +125,10 @@ const Dogs = ({ onDogSelected }) => (
 ```
 
 ----
+
+#### Demos
+
+- react-static-big-comm
+    - react-static static site generator
+    - GraphCool wraps BigCommerce API
+    - Apollo client providing networking interface

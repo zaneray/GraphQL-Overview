@@ -1,0 +1,7 @@
+type CartPayload {
+  cart: Json!
+}
+
+extend type Query {
+  createCart(customer_id: Int!, email: String!, line_items: [Int]!, gift_certificates: [Int]! ): CartPayload
+}

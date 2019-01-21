@@ -1,0 +1,7 @@
+type AddCartItemsPayload {
+  cart: Json!
+}
+
+extend type Query {
+  addCartItems(cartId: String!, line_items: Json!, gift_certificates: Json! ): AddCartItemsPayload
+}

@@ -1,0 +1,7 @@
+type OrdersPayload {
+  allOrders: Json!
+}
+
+extend type Query {
+  orders: OrdersPayload
+}

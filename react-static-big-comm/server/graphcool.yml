@@ -1,0 +1,72 @@
+types: ./types.graphql
+
+functions:
+  ###
+  ### PRODUCTS
+  ###
+  products:
+    handler:
+      code: src/products/products.js
+    type: resolver
+    schema: src/products/products.graphql
+  ###
+  ### CUSTOMERS
+  ###
+  customers:
+    handler:
+      code: src/customer/customers.js
+    type: resolver
+    schema: src/customer/customers.graphql
+  createCustomer:
+    handler:
+      code: src/customer/createCustomer.js
+    type: resolver
+    schema: src/customer/createCustomer.graphql
+  createAddress:
+    handler:
+      code: src/customer/createAddress.js
+    type: resolver
+    schema: src/customer/createAddress.graphql
+  ###
+  ### ORDERS
+  ###
+  orders:
+    handler:
+      code: src/orders/orders.js
+    type: resolver
+    schema: src/orders/orders.graphql
+  ###
+  ### CART
+  ###
+  createCart:
+    handler:
+      code: src/cart/createCart.js
+    type: resolver
+    schema: src/cart/createCart.graphql
+  addCartItems:
+    handler:
+      code: src/cart/addCartItems.js
+    type: resolver
+    schema: src/cart/addCartItems.graphql
+  getCart:
+    handler:
+      code: src/cart/getCart.js
+    type: resolver
+    schema: src/cart/getCart.graphql
+
+
+# Model/Relation permissions are used to limit the API access
+# To take the burden of thinking about those while development, we
+# preconfigured the wildcard ("*") permission that allows everything
+# Read more here:
+# https://www.graph.cool/docs/reference/auth/authorization/overview-iegoo0heez
+permissions:
+  - operation: "*"
+
+
+# Your root tokens used for functions to get full access to the API
+# Read more here:
+# https://www.graph.cool/docs/reference/auth/authentication/authentication-tokens-eip7ahqu5o
+# rootTokens:
+#   - mytoken
+

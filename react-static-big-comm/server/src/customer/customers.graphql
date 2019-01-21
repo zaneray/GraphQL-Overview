@@ -1,0 +1,7 @@
+type CustomersPayload {
+  allCustomers: Json!
+}
+
+extend type Query {
+  customers: CustomersPayload
+}

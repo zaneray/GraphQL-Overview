@@ -1,0 +1,7 @@
+type GetCartPayload {
+  cart: Json!
+}
+
+extend type Query {
+  getCart(cartId: String!): GetCartPayload
+}

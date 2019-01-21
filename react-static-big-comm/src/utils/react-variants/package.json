@@ -1,0 +1,88 @@
+{
+  "name": "@dimg/react-variants",
+  "version": "1.0.8",
+  "description": "Higher-order component for creating named styled variants.",
+  "author": "Jay Cheroske",
+  "dependencies": {
+    "babel-runtime": "^6.26.0",
+    "classnames": "^2.2.5",
+    "lodash": "^4.17.4",
+    "react-jss": "^7.2.0",
+    "recompose": "^0.25.1"
+  },
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AmericaCampaign/utility-libraries.git"
+  },
+  "license": "UNLICENSED",
+  "private": false,
+  "scripts": {
+    "clean": "rimraf lib",
+    "dist": "cross-env BABEL_ENV=production babel src --out-dir lib --copy-files",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prepublish": "yarn run dist",
+    "report": "nyc report",
+    "test": "cross-env BABEL_ENV=test nyc --all ava",
+    "test:watch": "cross-env BABEL_ENV=test ava --verbose --watch --concurrency=1"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "react",
+      "stage-0"
+    ],
+    "plugins": [
+      "transform-decorators-legacy",
+      "transform-runtime",
+      "dev-expression"
+    ],
+    "env": {
+      "development": {
+        "sourceMaps": "inline"
+      },
+      "test": {
+        "sourceMaps": "inline",
+        "plugins": [
+          "istanbul"
+        ]
+      }
+    }
+  },
+  "ava": {
+    "files": [
+      "tests/**/*{.,-}{spec,test}.js"
+    ],
+    "source": [
+      "src/**/*.js"
+    ],
+    "failFast": false,
+    "require": [
+      "../../config/init-testing",
+      "babel-register"
+    ],
+    "babel": "inherit"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.js"
+    ],
+    "instrument": false,
+    "require": [
+      "babel-register"
+    ],
+    "reporter": [
+      "html",
+      "text",
+      "json"
+    ],
+    "sourceMap": false,
+    "temp-directory": "coverage/.nyc_output"
+  },
+  "eslintIgnore": [
+    "coverage/",
+    "lib/",
+    "node_modules/"
+  ]
+}
