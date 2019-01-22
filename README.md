@@ -139,3 +139,29 @@ const Dogs = ({ onDogSelected }) => (
 #### GraphCool
 
 - use command line tool
+
+
+#### Shopify
+
+https://accounts.shopify.com/store-login
+
+"dougs-graphql-test-store.myshopify.com"
+
+```
+{
+  shop {
+    products(first: 5) {
+      edges {
+        node {
+          id
+          handle
+          title
+        }
+      }
+      pageInfo {
+        hasNextPage
+      }
+    }
+  }
+}
+```
