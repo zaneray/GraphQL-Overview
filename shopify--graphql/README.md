@@ -26,3 +26,60 @@ $ curl -X POST \
   }
 }
 ```
+
+
+### Additional Examples
+
+
+
+```
+// DB Component
+import {INSERT, withQuery} from '@dimg/apollo-tag'
+import gql from 'graphql-tag'
+import {Tables} from '../Tables'
+import {displayCustomerFragment} from './displayCustomerFragment'
+
+const findCustomersByForeignKey = gql`
+  query findCustomersByForeignKey($ownerId: ID!) {
+    allCustomers(filter: {owner: {id: $ownerId}}) {
+      ...displayCustomerFragment
+    }
+  }
+  ${displayCustomerFragment}
+`
+
+const dependencies = {
+  [Tables.CUSTOMER]: [INSERT],
+}
+
+export const FindCustomersByForeignKey = withQuery(findCustomersByForeignKey, {
+  dependencies,
+})
+````
+
+
+```
+// in usage
+
+const MyCustomersTable = ({userId}) => (
+  <FindCustomersByForeignKey ownerId={userId}>
+    {({customers}) => {
+      const mapCustomersToRow = customers.map(c => ({
+        name: <Link to={Routes.customers.customer.info.url(c.id)}>{c.name}</Link>,
+        classification: c.classification,
+        id: c.id,
+      }))
+      return (
+        <GraphPanel header={'This Weeks Customers'}>
+          <EnhancedTable
+            data={mapCustomersToRow}
+            sortBy="name"
+            orderBy="name"
+            headers={headers}
+            colSpan={2}
+          />
+        </GraphPanel>
+      )
+    }}
+  </FindCustomersByForeignKey>
+```
